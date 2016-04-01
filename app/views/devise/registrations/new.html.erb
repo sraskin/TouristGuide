@@ -1,0 +1,29 @@
+<h2>Register</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.label 'Location' %>
+      <%= f.radio_button :user_type, '1' %>
+      <%= f.label 'Store' %>
+      <%= f.radio_button :user_type, '2' %>
+      <%= f.label 'Guide' %>
+      <%= f.radio_button :user_type, '3' %>
+      <%= f.input :first_name, label: 'First name' %>
+      <%= f.input :last_name, label: 'Last Name' %>
+      <%= f.label 'Male' %>
+      <%= f.radio_button :gender, 'M' %>
+      <%= f.label 'Female' %>
+      <%= f.radio_button :gender, 'F' %>
+      <%= f.input :email, required: true, autofocus: true %>
+      <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+      <%= f.input :password_confirmation, required: true %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Sign up" %>
+    </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Guide Services</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @guide_services.each do |guide_service| %>
+      <tr>
+        <td><%= link_to 'Show', guide_service %></td>
+        <td><%= link_to 'Edit', edit_guide_service_path(guide_service) %></td>
+        <td><%= link_to 'Destroy', guide_service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Guide service', new_guide_service_path %>

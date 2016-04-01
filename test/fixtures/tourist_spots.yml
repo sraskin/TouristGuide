@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  thana: MyString
+  district: MyString
+  place_image: MyString
+  place_details: MyText
+
+two:
+  name: MyString
+  thana: MyString
+  district: MyString
+  place_image: MyString
+  place_details: MyText
