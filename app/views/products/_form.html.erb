@@ -1,0 +1,15 @@
+<%= simple_form_for @product, url: local_business_products_path do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :local_business_id, as: :hidden, value: params[:local_business_id] %>
+    <%= f.input :name %>
+    <%= f.file_field :image %>
+    <%= f.input :description %>
+    <%= f.input :price %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

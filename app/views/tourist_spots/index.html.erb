@@ -12,6 +12,7 @@
   <tbody>
     <% @tourist_spots.each do |tourist_spot| %>
       <tr>
+        <td><%= link_to tourist_spot.name, tourist_spot_spots_path(tourist_spot) %></td>
         <td><%= link_to 'Show', tourist_spot %></td>
         <td><%= link_to 'Edit', edit_tourist_spot_path(tourist_spot) %></td>
         <td><%= link_to 'Destroy', tourist_spot, method: :delete, data: { confirm: 'Are you sure?' } %></td>

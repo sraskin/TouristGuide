@@ -1,10 +1,26 @@
 <%= simple_form_for(@local_business) do |f| %>
-  <%= f.error_notification %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
-  </div>
+    <div class="form-inputs">
+      <%= f.label "Choose Division" %>
+      <%= f.input :division_id, collection: @divisions, as: :select %>
+      <%= f.label "Choose District" %>
+      <%= f.input :district_id, collection: @districts, as: :select %>
+      <%= f.label "Choose Thana" %>
+      <%= f.input :thana_id, collection: @thanas, as: :select %>
+      <%= f.input :product_name, label: "Product/Business Name" %>
+      <%= f.input :store_name, placeholder: 'Store name (if any)' %>
+      <%= f.input :product_type, placeholder: 'Which kinds of product is this. ex.bakery,drink,cloth' %>
+      <%= f.input :product_price, placeholder: 'Price' %>
+      <%= f.input :product_details, placeholder: 'Description' %>
+      <%= f.input :web_address, placeholder: 'Web address' %>
+      <%= f.input :phone, placeholder: 'phone' %>
+      <%= f.input :email, placeholder: 'email' %>
+      <%= f.input :product_image%>
+      <%= f.input :store_image %>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
 <% end %>

@@ -1,0 +1,18 @@
+<%= simple_form_for @spot, url: tourist_spot_spots_path  do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :tourist_spot_id, as: :hidden, value: params[:tourist_spot_id] %>
+    <%= f.input :name %>
+    <%= f.input :attraction %>
+    <%= f.input :details %>
+    <%= f.input :address %>
+    <%= f.input :travel_instruction %>
+    <%= f.input :image %>
+    <%= f.input :hotel %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

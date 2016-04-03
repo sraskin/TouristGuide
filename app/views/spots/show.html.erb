@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @spot.name %>
+</p>
+
+<p>
+  <strong>Attraction:</strong>
+  <%= @spot.attraction %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @spot.details %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @spot.address %>
+</p>
+
+<p>
+  <strong>Travel instruction:</strong>
+  <%= @spot.travel_instruction %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @spot.image %>
+</p>
+
+<p>
+  <strong>Hotel:</strong>
+  <%= @spot.hotel %>
+</p>
+
+<%= link_to 'Edit', edit_spot_path(@spot) %> |
+<%= link_to 'Back', spots_path %>

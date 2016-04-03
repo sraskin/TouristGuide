@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @packege.name %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @packege.details %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @packege.price %>
+</p>
+
+<%= link_to 'Edit', edit_packege_path(@packege) %> |
+<%= link_to 'Back', packeges_path %>

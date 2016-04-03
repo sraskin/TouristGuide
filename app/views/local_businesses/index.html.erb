@@ -4,19 +4,20 @@
 
 <table>
   <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @local_businesses.each do |local_business| %>
+  <% @local_businesses.each do |local_business| %>
       <tr>
+        <td><%= link_to local_business.store_name, local_business_products_path(local_business) %></td>
         <td><%= link_to 'Show', local_business %></td>
         <td><%= link_to 'Edit', edit_local_business_path(local_business) %></td>
-        <td><%= link_to 'Destroy', local_business, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', local_business, method: :delete, data: {confirm: 'Are you sure?'} %></td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 

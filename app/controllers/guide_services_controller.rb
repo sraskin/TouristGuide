@@ -1,8 +1,9 @@
 class GuideServicesController < ApplicationController
   before_action :find_guide_service, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   def index
-    @guide_services = GuideService.all
+    @guide_services = current_user.guide_services.all
   end
 
   def show
@@ -10,13 +11,16 @@ class GuideServicesController < ApplicationController
 
   def new
     @guide_service = GuideService.new
+    @divisions = Division.all
+    @districts = District.all
+    @thanas = Thana.all
   end
 
   def edit
   end
 
   def create
-    @guide_service = GuideService.new(guide_service_params)
+    @guide_service = current_user.guide_services.new(guide_service_params)
 
     if @guide_service.save
       redirect_to @guide_service, notice: "Success"
@@ -40,10 +44,10 @@ class GuideServicesController < ApplicationController
 
   private
   def find_guide_service
-    @guide_service = GuideService.find(params[:id])
+    @guide_service = current_user.guide_services.find(params[:id])
   end
 
   def guide_service_params
-    params.require(:guide_service).permit(:location_id, :name, :phone, :email, :thana, :district, :address, :web, :service_area, :service_type, :availability, :user_id)
+    params.require(:guide_service).permit(:name, :phone, :email, :thana_id, :district_id,:division_id, :address, :web, :service_area, :service_type, :availability, :user_id)
   end
 end

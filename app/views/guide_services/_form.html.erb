@@ -1,10 +1,24 @@
-<%= simple_form_for(@guide_service) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
+<div class="container">
+  <div class="col-md-10 col-md-offset-1">
+    <%= simple_form_for(@guide_service) do |f| %>
+        <%= f.error_notification %>
+        <div class="form-inputs">
+          <%= f.input :name, label: "Guide Name" %>
+          <%= f.label "Choose Division" %>
+          <%= f.input :division_id, collection: @divisions, as: :select %>
+          <%= f.label "Choose District" %>
+          <%= f.input :district_id, collection: @districts, as: :select %>
+          <%= f.label "Choose Thana" %>
+          <%= f.input :thana_id, collection: @thanas, as: :select %>
+          <%= f.input :email, placeholder: 'user@domain.com' %>
+          <%= f.input :phone, placeholder: '016' %>
+          <%= f.input :web, placeholder: 'www.example.com' %>
+          <%= f.input :service_area, placeholder: 'Service area' %>
+          <%= f.input :service_type, placeholder: 'Service area' %>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit %>
+        </div>
+    <% end %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+</div>

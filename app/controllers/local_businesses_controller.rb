@@ -1,8 +1,9 @@
 class LocalBusinessesController < ApplicationController
   before_action :find_local_business, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   def index
-    @local_businesses = LocalBusiness.all
+    @local_businesses = current_user.local_businesses.all
   end
 
   def show
@@ -10,13 +11,16 @@ class LocalBusinessesController < ApplicationController
 
   def new
     @local_business = LocalBusiness.new
+    @divisions = Division.all
+    @districts = District.all
+    @thanas = Thana.all
   end
 
   def edit
   end
 
   def create
-    @local_business = LocalBusiness.new(local_business_params)
+    @local_business = current_user.local_businesses.new(local_business_params)
 
     if @local_business.save
       redirect_to @local_business, notice: "success"
@@ -40,10 +44,10 @@ class LocalBusinessesController < ApplicationController
 
   private
   def find_local_business
-    @local_business = LocalBusiness.find(params[:id])
+    @local_business = current_user.local_businesses.find(params[:id])
   end
 
   def local_business_params
-    params.require(:local_business).permit(:location_id, :product_name, :store_name, :product_type, :product_price, :product_details, :product_image, :store_image, :web_address, :phone, :email, :thana, :district, :user_id)
+    params.require(:local_business).permit(:product_name, :store_name, :product_type, :product_price, :product_details, :product_image, :store_image, :web_address, :phone, :email, :thana_id, :district_id,:division_id, :user_id)
   end
 end

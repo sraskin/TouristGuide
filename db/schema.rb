@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160401073356) do
+ActiveRecord::Schema.define(version: 20160403161022) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -46,13 +46,25 @@ ActiveRecord::Schema.define(version: 20160401073356) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "districts", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "thana_id",   limit: 4
+  end
+
+  create_table "divisions", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "thana_id",    limit: 4
+    t.integer  "district_id", limit: 4
+  end
+
   create_table "guide_services", force: :cascade do |t|
-    t.integer  "location_id",  limit: 4
     t.string   "name",         limit: 255
     t.string   "phone",        limit: 255
     t.string   "email",        limit: 255
-    t.string   "thana",        limit: 255
-    t.string   "district",     limit: 255
     t.string   "address",      limit: 255
     t.string   "web",          limit: 255
     t.string   "service_area", limit: 255
@@ -61,10 +73,12 @@ ActiveRecord::Schema.define(version: 20160401073356) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.integer  "user_id",      limit: 4
+    t.integer  "division_id",  limit: 4
+    t.integer  "district_id",  limit: 4
+    t.integer  "thana_id",     limit: 4
   end
 
   create_table "local_businesses", force: :cascade do |t|
-    t.integer  "location_id",     limit: 4
     t.string   "product_name",    limit: 255
     t.string   "store_name",      limit: 255
     t.string   "product_type",    limit: 255
@@ -75,31 +89,62 @@ ActiveRecord::Schema.define(version: 20160401073356) do
     t.string   "web_address",     limit: 255
     t.string   "phone",           limit: 255
     t.string   "email",           limit: 255
-    t.string   "thana",           limit: 255
-    t.string   "district",        limit: 255
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
     t.integer  "user_id",         limit: 4
+    t.integer  "division_id",     limit: 4
+    t.integer  "district_id",     limit: 4
+    t.integer  "thana_id",        limit: 4
   end
 
-  create_table "locations", force: :cascade do |t|
+  create_table "packeges", force: :cascade do |t|
+    t.string   "name",             limit: 255
+    t.text     "details",          limit: 65535
+    t.decimal  "price",                          precision: 10
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+    t.integer  "guide_service_id", limit: 4
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.integer  "local_business_id", limit: 4
+    t.string   "name",              limit: 255
+    t.string   "image",             limit: 255
+    t.text     "description",       limit: 65535
+    t.float    "price",             limit: 24
+  end
+
+  create_table "spots", force: :cascade do |t|
+    t.string   "name",               limit: 255
+    t.text     "attraction",         limit: 65535
+    t.string   "details",            limit: 255
+    t.text     "address",            limit: 65535
+    t.text     "travel_instruction", limit: 65535
+    t.string   "image",              limit: 255
+    t.text     "hotel",              limit: 65535
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.integer  "tourist_spot_id",    limit: 4
+  end
+
+  create_table "thanas", force: :cascade do |t|
     t.string   "name",       limit: 255
-    t.string   "thana",      limit: 255
-    t.string   "district",   limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
   create_table "tourist_spots", force: :cascade do |t|
     t.string   "name",          limit: 255
-    t.string   "thana",         limit: 255
-    t.string   "district",      limit: 255
     t.string   "place_image",   limit: 255
     t.text     "place_details", limit: 65535
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.integer  "location_id",   limit: 4
     t.integer  "user_id",       limit: 4
+    t.integer  "division_id",   limit: 4
+    t.integer  "district_id",   limit: 4
+    t.integer  "thana_id",      limit: 4
   end
 
   create_table "users", force: :cascade do |t|

@@ -12,6 +12,7 @@
   <tbody>
     <% @guide_services.each do |guide_service| %>
       <tr>
+        <td><%= link_to guide_service.name, guide_service_packeges_path(guide_service) %></td>
         <td><%= link_to 'Show', guide_service %></td>
         <td><%= link_to 'Edit', edit_guide_service_path(guide_service) %></td>
         <td><%= link_to 'Destroy', guide_service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
