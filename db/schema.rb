@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160403161022) do
+ActiveRecord::Schema.define(version: 20160403193259) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -47,10 +47,11 @@ ActiveRecord::Schema.define(version: 20160403161022) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "districts", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "thana_id",   limit: 4
+    t.string   "name",        limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "thana_id",    limit: 4
+    t.integer  "division_id", limit: 4
   end
 
   create_table "divisions", force: :cascade do |t|
@@ -130,9 +131,10 @@ ActiveRecord::Schema.define(version: 20160403161022) do
   end
 
   create_table "thanas", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name",        limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "district_id", limit: 4
   end
 
   create_table "tourist_spots", force: :cascade do |t|
