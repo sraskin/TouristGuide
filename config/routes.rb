@@ -26,5 +26,13 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users
 
+  resources :dhaka
+  resources :chittagong
+  resources :barisal
+  resources :khulna
+  resources :mymensingh
+  resources :rajshahi
+  resources :rangpur
+  resources :sylhet
 
 end

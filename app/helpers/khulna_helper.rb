@@ -1,0 +1,2 @@
+module KhulnaHelper
+end

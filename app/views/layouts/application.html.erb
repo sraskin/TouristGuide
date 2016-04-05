@@ -1,21 +1,322 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="no-js">
 <head>
-  <title>TourismCms</title>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+  <meta charset="UTF-8"/>
+  <% if current_page?(root_path) %>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+  <% elsif current_page?(dhaka_index_path) %>
+      <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=0;"/>
+  <% elsif current_page?(chittagong_index_path) %>
+      <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=0;"/>
+  <% elsif current_page?(barisal_index_path) %>
+      <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=0;"/>
+  <% elsif current_page?(mymensingh_index_path) %>
+      <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=0;"/>
+  <% elsif current_page?(rajshahi_index_path) %>
+      <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=0;"/>
+  <% elsif current_page?(rangpur_index_path) %>
+      <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=0;"/>
+  <% elsif current_page?(sylhet_index_path) %>
+      <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=0;"/>
+  <% elsif current_page?(khulna_index_path) %>
+      <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=0;"/>
+  <% else %>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+  <% end %>
+  <meta name="Team Hex6a" content="Travel BD"/>
+  <meta name="theme-color" content="#FF6F00"/>
+  <title>Travel BD</title>
+  <%= stylesheet_link_tag 'frontend' %>
 </head>
-<body>
-
+<body
+<% if current_page?(root_path) %>
+class="homepage index-home index"
+<% elsif current_page?(dhaka_index_path) %>
+class="index-category"
+<% elsif current_page?(chittagong_index_path) %>
+class="index-category"
+<% elsif current_page?(barisal_index_path) %>
+class="index-category"
+<% elsif current_page?(mymensingh_index_path) %>
+class="index-category"
+<% elsif current_page?(rajshahi_index_path) %>
+class="index-category"
+<% elsif current_page?(rangpur_index_path) %>
+class="index-category"
+<% elsif current_page?(sylhet_index_path) %>
+class="index-category"
+<% elsif current_page?(khulna_index_path) %>
+class="index-category"
+<% else %>
+class="homepage index-home index"
+<% end %>
+>
 <% if notice %>
     <p class="alert alert-success"><%= notice %></p>
 <% end %>
 <% if alert %>
     <p class="alert alert-danger"><%= alert %></p>
 <% end %>
-<%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-<%= yield %>
+<div id="container"
+     <% if current_page?(root_path) %>
+     class="container intro-effect-grid"
+     <% elsif current_page?(dhaka_index_path) %>
+     class="container intro-effect-sidefixed"
+     <% elsif current_page?(chittagong_index_path) %>
+     class="container intro-effect-sidefixed"
+     <% elsif current_page?(barisal_index_path) %>
+     class="container intro-effect-sidefixed"
+     <% elsif current_page?(mymensingh_index_path) %>
+     class="container intro-effect-sidefixed"
+     <% elsif current_page?(rajshahi_index_path) %>
+     class="container intro-effect-sidefixed"
+     <% elsif current_page?(rangpur_index_path) %>
+     class="container intro-effect-sidefixed"
+     <% elsif current_page?(sylhet_index_path) %>
+     class="container intro-effect-sidefixed"
+     <% elsif current_page?(khulna_index_path) %>
+     class="container intro-effect-sidefixed"
+     <% else %>
+     class="container intro-effect-grid"
+     <% end %>
+     >
+  <a class="cd-primary-nav-trigger" id="trigger-menu" href="#0">
+    <span class="cd-menu-icon"></span>
+  </a>
+  <div id="travelogue-search" class="travelogue-search">
+    <form action="">
+      <input class="travelogue-search-input" placeholder="Enter your search term..." type="text" value="" name="search" id="search">
+      <input class="travelogue-search-submit" type="submit" value="">
+      <span class="travelogue-icon-search fa fa-search"></span>
+    </form>
+  </div>
 
-</body>
+  <% if current_page?(root_path) %>
+      <header class="header">
+        <div class="bg-img">
+          <img class="async-image hide" src="#" data-src="/assets/poza-2.jpg" alt=""/>
+        </div>
+        <div class="title hidden" id="title">
+          <h1>I want to travel the world</h1>
+        </div>
+        <div class="overlay hidden" id="overlay"></div>
+      </header>
+  <% elsif current_page?(dhaka_index_path) %>
+      <div class="title hidden" id="title">
+        <h1>Dhaka</h1>
+        <p class="subline">Keep calm and go to Puran Dhaka</p>
+      </div>
+      <header class="header">
+        <div class="bg-img">
+          <img class="async-image hide" src="#" data-src="/assets/category_paris.jpg" alt=""/>
+          <div class="overlay hidden" id="overlay"></div>
+        </div>
+      </header>
+  <% elsif current_page?(chittagong_index_path) %>
+      <div class="title hidden" id="title">
+        <h1>Chittagong</h1>
+        <p class="subline">Keep calm and go to Puran Dhaka</p>
+      </div>
+      <header class="header">
+        <div class="bg-img">
+          <img class="async-image hide" src="#" data-src="/assets/category_paris.jpg" alt=""/>
+          <div class="overlay hidden" id="overlay"></div>
+        </div>
+      </header>
+  <% elsif current_page?(barisal_index_path) %>
+      <div class="title hidden" id="title">
+        <h1>Barisal</h1>
+        <p class="subline">Keep calm and go to Puran Dhaka</p>
+      </div>
+      <header class="header">
+        <div class="bg-img">
+          <img class="async-image hide" src="#" data-src="/assets/category_paris.jpg" alt=""/>
+          <div class="overlay hidden" id="overlay"></div>
+        </div>
+      </header>
+  <% elsif current_page?(mymensingh_index_path) %>
+      <div class="title hidden" id="title">
+        <h1>Mymensingh</h1>
+        <p class="subline">Keep calm and go to Puran Dhaka</p>
+      </div>
+      <header class="header">
+        <div class="bg-img">
+          <img class="async-image hide" src="#" data-src="/assets/category_paris.jpg" alt=""/>
+          <div class="overlay hidden" id="overlay"></div>
+        </div>
+      </header>
+  <% elsif current_page?(rajshahi_index_path) %>
+      <div class="title hidden" id="title">
+        <h1>Rajshahi</h1>
+        <p class="subline">Keep calm and go to Puran Dhaka</p>
+      </div>
+      <header class="header">
+        <div class="bg-img">
+          <img class="async-image hide" src="#" data-src="/assets/category_paris.jpg" alt=""/>
+          <div class="overlay hidden" id="overlay"></div>
+        </div>
+      </header>
+  <% elsif current_page?(rangpur_index_path) %>
+      <div class="title hidden" id="title">
+        <h1>Rangpur</h1>
+        <p class="subline">Keep calm and go to Puran Dhaka</p>
+      </div>
+      <header class="header">
+        <div class="bg-img">
+          <img class="async-image hide" src="#" data-src="/assets/category_paris.jpg" alt=""/>
+          <div class="overlay hidden" id="overlay"></div>
+        </div>
+      </header>
+  <% elsif current_page?(sylhet_index_path) %>
+      <div class="title hidden" id="title">
+        <h1>Sylhet</h1>
+        <p class="subline">Keep calm and go to Puran Dhaka</p>
+      </div>
+      <header class="header">
+        <div class="bg-img">
+          <img class="async-image hide" src="#" data-src="/assets/category_paris.jpg" alt=""/>
+          <div class="overlay hidden" id="overlay"></div>
+        </div>
+      </header>
+  <% elsif current_page?(khulna_index_path) %>
+      <div class="title hidden" id="title">
+        <h1>Sylhet</h1>
+        <p class="subline">Keep calm and go to Puran Dhaka</p>
+      </div>
+      <header class="header">
+        <div class="bg-img">
+          <img class="async-image hide" src="#" data-src="/assets/category_paris.jpg" alt=""/>
+          <div class="overlay hidden" id="overlay"></div>
+        </div>
+      </header>
+  <% else %>
+      <header class="header">
+        <div class="bg-img">
+          <img class="async-image hide" src="#" data-src="/assets/poza-12.jpg" alt=""/>
+        </div>
+        <div class="title hidden" id="title">
+          <h1>I want to travel the world</h1>
+        </div>
+        <div class="overlay hidden" id="overlay"></div>
+      </header>
+  <% end %>
+
+  <% if current_page?(root_path) %>
+      <button class="trigger scroll-down-pulse"><span>Trigger</span></button>
+  <% elsif current_page?(dhaka_index_path) %>
+      <button class="trigger"><span>Trigger</span></button>
+  <% elsif current_page?(chittagong_index_path) %>
+      <button class="trigger"><span>Trigger</span></button>
+  <% elsif current_page?(barisal_index_path) %>
+      <button class="trigger"><span>Trigger</span></button>
+  <% elsif current_page?(mymensingh_index_path) %>
+      <button class="trigger"><span>Trigger</span></button>
+  <% elsif current_page?(rajshahi_index_path) %>
+      <button class="trigger"><span>Trigger</span></button>
+  <% elsif current_page?(rangpur_index_path) %>
+      <button class="trigger"><span>Trigger</span></button>
+  <% elsif current_page?(sylhet_index_path) %>
+      <button class="trigger"><span>Trigger</span></button>
+  <% elsif current_page?(khulna_index_path) %>
+      <button class="trigger"><span>Trigger</span></button>
+  <% else %>
+      <button class="trigger scroll-down-pulse"><span>Trigger</span></button>
+  <% end %>
+
+  <% if current_page?(root_path) %>
+      <article class="content">
+        <div class="">
+  <% elsif current_page?(dhaka_index_path) %>
+      <article class="content no-padding">
+        <div class="no-margin">
+  <% elsif current_page?(chittagong_index_path) %>
+      <article class="content no-padding">
+        <div class="no-margin">
+  <% elsif current_page?(barisal_index_path) %>
+      <article class="content no-padding">
+        <div class="no-margin">
+  <% elsif current_page?(mymensingh_index_path) %>
+      <article class="content no-padding">
+        <div class="no-margin">
+  <% elsif current_page?(rajshahi_index_path) %>
+      <article class="content no-padding">
+        <div class="no-margin">
+  <% elsif current_page?(rangpur_index_path) %>
+      <article class="content no-padding">
+        <div class="no-margin">
+  <% elsif current_page?(sylhet_index_path) %>
+      <article class="content no-padding">
+        <div class="no-margin">
+  <% elsif current_page?(khulna_index_path) %>
+      <article class="content no-padding">
+        <div class="no-margin">
+  <% else %>
+      <article class="content">
+        <div class="">
+  <% end %>
+  <div class="grid">
+    <%= yield %>
+  </div>
+  </div>
+  </article>
+
+  </div>
+  <div id="st-container" class="st-container st-effect-1">
+    <div class="st-menu st-effect-1">
+      <div class="fullwidth site-infos">
+        <div class="logo">
+          <a href="/">
+            <img src="/assets/favicon.ico" alt="Travelogue">
+          </a>
+        </div>
+        <h3 class="section-title">Travel BD</h3>
+        <span class="section-description">The journey of a thousand miles begins with a single step.</span>
+      </div>
+      <nav class="fullwidth sidebar-navigation-menu">
+        <ul>
+          <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+          <li><a href=""><i class="fa fa-pencil-square-o"></i>Category</a></li>
+          <li><a href=""><i class="fa fa-picture-o"></i>Gallery</a></li>
+          <li><a href=""><i class="fa fa-heart"></i>About</a></li>
+          <li><a href=""><i class="fa fa-star"></i>Features</a></li>
+          <li><a href=""><i class="fa fa-phone"></i>Contact</a></li>
+        </ul>
+      </nav>
+      <div class="fullwidth newsletter">
+        <div id="mc_embed_signup">
+          <h4 class="section-title">Newsletter</h4>
+          <span class="section-description">Subscribe and get the latest news about events and new places and products right to your inbox.</span>
+          <div id="email">
+            <form action="" id="invite" method="POST">
+              <input type="text" placeholder="Enter email address" name="email" id="address" data-validate="validate(required, email)">
+              <button type="submit" class="hidden">Submit</button>
+              <span id="result" class="section-description"></span>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="fullwidth sidebar-social-networks">
+        <ul>
+          <li class="facebook"><a href=""><i class="fa fa-facebook"></i></a></li>
+          <li class="twitter"><a href=""><i class="fa fa-twitter"></i></a></li>
+          <li class="googleplus"><a href=""><i class="fa fa-google-plus"></i></a></li>
+          <li class="youtube"><a href=""><i class="fa fa-youtube"></i></a></li>
+          <li class="pinterest"><a href=""><i class="fa fa-pinterest"></i></a></li>
+          <li class="linkedin"><a href=""><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+      <div class="fullwidth bottom-links">
+        <p>2014 © Travel BD. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+
+  <% if current_page?(root_path) %>
+      <div id="infinitescroll"></div>
+  <% else %>
+      <br>
+  <% end %>
+  <a href="#" class="back-to-top">Top</a>
+  <%= javascript_include_tag 'app' %>
+  </body>
 </html>
